@@ -1,0 +1,24 @@
+{
+  "name": "dsa-sheet-server",
+  "version": "1.0.0",
+  "description": "This is server for DSA sheet.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhilkrdwivedi/DSA-Sheet.git"
+  },
+  "keywords": [
+    "MERN",
+    "DSA",
+    "Sheet"
+  ],
+  "author": "nikhilkrdwivedi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikhilkrdwivedi/DSA-Sheet/issues"
+  },
+  "homepage": "https://github.com/nikhilkrdwivedi/DSA-Sheet#readme"
+}
