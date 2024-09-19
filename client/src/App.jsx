@@ -1,33 +1,32 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import Login from './pages/public/Login'
+import NavBar from './pages/private/Navbar'
+import Button from './components/Button'
+import { MdOutlineEmail } from "react-icons/md";
+import { MdPassword } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
+import { BiLogInCircle } from "react-icons/bi";
+import Topics from './pages/private/Topics';
 function App() {
+  console.log("Hi")
   const [count, setCount] = useState(0)
-
+  const [topics, setTopics] = useState([
+    'Array',
+    'Linked List',
+    'Stack',
+    'Queue',
+    'Tree',
+    'Recursion',
+    'Heap',
+    'Graph',
+    'Hash',
+  ])
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/* <div className='bg-gradient-to-r from-gray-100 to-gray-300 h-screen w-screen flex justify-center items-center'> */}
+      {/* <!-- component --> */}
+      {/* <NavBar /> */}
+      <Topics topics={topics}/>
     </>
   )
 }
