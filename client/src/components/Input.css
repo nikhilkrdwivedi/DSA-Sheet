@@ -6,8 +6,8 @@
 }
 
 .input-field {
-  padding: 0 10px; /* Adjust as needed */
-  padding-left: 30px; /* Space for left icon */
+  padding: 10px 10px; /* Adjust as needed */
+  padding-left: 40px; /* Space for left icon */
   padding-right: 30px; /* Space for right icon */
   width: 100%;
   box-sizing: border-box;

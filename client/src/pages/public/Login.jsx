@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import { toast } from 'react-toastify';
 import Input from '../../components/Input'
 import loginImg from '../../assets/girl-laptop.png'
 import { MdOutlineEmail } from "react-icons/md";
@@ -42,8 +42,15 @@ export default function Login() {
             setLoader({ ...loader, isLoading: true });
             await login(form);
             navigate('/', { replace: true });
+            toast.success("Congratulations, You can access services.", {
+                position: "bottom-right",
+            });
         } catch (error) {
-            console.error(error)
+            console.log(error)
+            const errorMsg = error?.response?.data?.message || 'Unable to login!'
+            toast.error(errorMsg, {
+                position: "bottom-right",
+            });
         } finally {
             setLoader({ ...loader, isLoading: false });
         }
@@ -82,7 +89,7 @@ export default function Login() {
                         value={form.email}
                         errorMessage={form.errors.email}
                         onChange={(event) => handleFormChange(event, 'email')}
-                        leftIcon={<MdOutlineEmail className='w-6 h-6 text-gray-400' />}
+                        leftIcon={<MdOutlineEmail className='w-5 h-5 text-gray-400 ml-1' />}
                     />
                     <Input
                         type={form.showPassword ? "text" : "password"}
@@ -92,7 +99,7 @@ export default function Login() {
                         errorMessage={form.errors.password}
                         onChange={(event) => handleFormChange(event, 'password')}
                         rightIconClick={() => setForm({ ...form, showPassword: !form.showPassword })}
-                        leftIcon={<RiLockPasswordLine className='w-6 h-6 text-gray-400 mx-2' />}
+                        leftIcon={<RiLockPasswordLine className='w-5 h-5 text-gray-400 ml-1' />}
                         rightIcon={<MdPassword className={`w-6 h-6  ${form.showPassword ? 'text-green-500' : 'text-gray-400'}`} />} />
                     <Button
                         className="w-full p-2 rounded-full bg-pink-500 hover:bg-pink-600 mt-4"

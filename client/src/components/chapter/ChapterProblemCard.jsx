@@ -34,7 +34,7 @@ export default function ChapterProblemCard({ selectedChapter, problemCompleteCli
                                     anchor="bottom"
                                     className="flex justify-center items-center min-h-16 divide-y divide-white/5 rounded-xl bg-gray-50 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0 shadow-md"
                                 >
-                                    <div className="p-3">
+                                    <div className="p-2  max-w-96">
                                         <p className="text-gray-700 font-medium whitespace-no-wrap">
                                             {problem.note}
                                         </p>

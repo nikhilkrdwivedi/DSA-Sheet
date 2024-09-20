@@ -14,6 +14,7 @@ import ChapterProblemCard from '../../components/chapter/ChapterProblemCard';
 import Breadcrumbs from '../../components/Breadcrumb';
 import { getProgressByTopicId, updateProgress } from '../../api/progress';
 import ProgressCard from '../../components/chapter/ProgressCard';
+import { toast } from 'react-toastify';
 
 const TAB_LIST = [
     'Resources',
@@ -90,9 +91,15 @@ export default function Topic() {
             setProgress((state) => ({
                 ...state,
                 [type]: progressTypeArray
-            }))
+            }));
+            toast.success("Progress updated!", {
+                position: "bottom-right",
+            });
         } catch (error) {
-            console.log(error)
+            const errorMsg = error?.response?.data?.message || 'Unable to updated!'
+            toast.error(errorMsg, {
+                position: "bottom-right",
+            });
         } finally {
 
             setLoader({ ...loader, isLoading: false });
