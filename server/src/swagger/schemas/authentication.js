@@ -22,11 +22,11 @@ export const loginUserRequestBody = {
   properties: {
     email: {
       type: "string",
-      example: "ironman@gmail.com",
+      example: "guest@gmail.com",
     },
     password: {
       type: "string",
-      example: "123Nikhil@Nikhil123",
+      example: "Guest6545@",
     },
   },
 };
