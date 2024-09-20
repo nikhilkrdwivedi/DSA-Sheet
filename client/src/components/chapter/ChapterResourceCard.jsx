@@ -6,22 +6,22 @@ import { BiLinkExternal } from "react-icons/bi";
 import Checkbox from '../../components/Checkbox';
 import Badge from '../../components/Badge';
 import { getLevelClassName, getTagsClassName } from '../../helpers/helper';
+
 export default function ChapterResourceCard({ selectedChapter, isChapterComplete, chapterCompleteClick }) {
-    // const [selectedVideo, setSelected]
     return (
         <div className='max-h-screen overflow-y-auto bg-stone-100 p-2 rounded-md shadow-md'>
 
             <div className='flex justify-between items-center my-2'>
                 <div className='text-xl'>{selectedChapter?.title}</div>
                 <div>
-                    <Checkbox  label="Mark Complete" labelClassName="text-md ml-2 text-gray-700 font-medium" onClick={()=>chapterCompleteClick(selectedChapter._id)} checked={isChapterComplete} />
+                    <Checkbox label="Mark Complete" labelClassName="text-md ml-2 text-gray-700 font-medium" onClick={() => chapterCompleteClick(selectedChapter._id)} checked={isChapterComplete} />
                 </div>
             </div>
             <iframe className='w-full h-96' src={selectedChapter?.resources?.video[0].url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div className='flex justify-start items-center gap-2 text-sm py-4 border-b'>
                 <div className='flex justify-start items-center gap-2'><GiLevelEndFlag />
                     <Badge
-                    className={getLevelClassName(selectedChapter.level)}
+                        className={getLevelClassName(selectedChapter.level)}
                         label={selectedChapter?.level}
                     />
                 </div>

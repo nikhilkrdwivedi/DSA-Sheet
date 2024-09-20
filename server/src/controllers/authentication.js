@@ -8,6 +8,7 @@ import { ENVIRONMENT_CONFIGS } from "../configurations/environment.js";
 import { UserProvider } from "../providers/provider.js";
 import { AUTH_CONSTANTS } from "../constants/authentication.js";
 import { transformUserToReturnToClient } from "../helpers/authentication.js";
+
 const login = async (request, response) => {
     try {
         const loginUser = request.body;

@@ -1,9 +1,9 @@
 import axiosHelper from "./axiosHelper";
-import {ENVIRONMENT_CONFIGS} from "../configurations/environment";
+import { ENVIRONMENT_CONFIGS } from "../configurations/environment";
 
 const AUTHENTICATION_ENDPOINT = "/api/v1/authentication";
 const ENDPOINT = ENVIRONMENT_CONFIGS.BASE_URL + AUTHENTICATION_ENDPOINT;
-console.log('😀😀😀 line 6 🚀🚀🚀',ENVIRONMENT_CONFIGS );
+
 export function validateToken() {
   return axiosHelper(
     `${ENDPOINT}/validate-token`,

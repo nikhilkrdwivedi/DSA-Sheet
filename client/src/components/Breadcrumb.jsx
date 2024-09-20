@@ -9,10 +9,10 @@ const homeTextBaseClass =
   'text-sm font-medium text-gray-500 hover:text-gray-700';
 
 export default function Breadcrumbs({
-  breadcrumbs: { pages, homeUrl, homeTitle, onClick = () => {} },
+  breadcrumbs: { pages, homeUrl, homeTitle, onClick = () => { } },
   className,
 }) {
-  const showHomeText = (homeTitle || '').length > 0;  
+  const showHomeText = (homeTitle || '').length > 0;
   return (
     <nav className={classnames('flex mb-4', className)} aria-label="Breadcrumb">
       <ol role="list" className="flex items-center space-x-4">

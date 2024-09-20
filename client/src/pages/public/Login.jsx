@@ -19,40 +19,38 @@ export default function Login() {
     const [form, setForm] = useState(LOGIN_BASE_STATE)
     const { login, isAuthenticated } = useAuth();
     const navigate = useNavigate();
-    const {loader, setLoader }=   useLoader();
+    const { loader, setLoader } = useLoader();
     const handleLogin = async () => {
-    try{    const errorMap = {};
-        console.log(form)
-        if (!form.email) {
-            errorMap.email = "Email is required!";
-        }
-        if (!form.password) {
-            errorMap.password = "Password is required!";
-        }
+        try {
+            const errorMap = {};
+            if (!form.email) {
+                errorMap.email = "Email is required!";
+            }
+            if (!form.password) {
+                errorMap.password = "Password is required!";
+            }
 
-        console.log(errorMap)
-        if (Object.keys(errorMap).length) {
-            setForm((state) => ({
-                ...state,
-                errors: {
-                    ...errorMap
-                }
-            }));
-            return;
+            if (Object.keys(errorMap).length) {
+                setForm((state) => ({
+                    ...state,
+                    errors: {
+                        ...errorMap
+                    }
+                }));
+                return;
+            }
+            setLoader({ ...loader, isLoading: true });
+            await login(form);
+            navigate('/', { replace: true });
+        } catch (error) {
+            console.error(error)
+        } finally {
+            setLoader({ ...loader, isLoading: false });
         }
-        setLoader({...loader, isLoading: true});
-        await login(form);
-        navigate('/', { replace: true });
-      }catch(error){
-        console.error(error)
-      }finally{
-        setLoader({...loader, isLoading: false});
-      }
     };
 
     const handleFormChange = (event, key) => {
         const { target: { value } } = event;
-        console.log({ value, key });
         if (!value) return;
         setForm((state) => ({
             ...state,
@@ -61,7 +59,6 @@ export default function Login() {
     }
 
     const handleGuestCredential = (key) => {
-        console.log(ENVIRONMENT_CONFIGS.GUEST_CREDENTIALS)
         setForm((state) => ({
             ...state,
             ...ENVIRONMENT_CONFIGS.GUEST_CREDENTIALS,
@@ -72,7 +69,6 @@ export default function Login() {
             navigate('/', { replace: true });
         }
     }, [isAuthenticated, navigate]);
-    console.log({ form })
     return (
         <Container>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 rounded-lg shadow-lg w-full md:w-auto m-4'>

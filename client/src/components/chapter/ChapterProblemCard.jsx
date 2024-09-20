@@ -1,14 +1,13 @@
 import React from 'react'
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
+import { TbHandClick } from "react-icons/tb";
 import TableRow from '../TableRow'
 import Badge from '../Badge'
 import Table from '../Table'
-import { TbHandClick } from "react-icons/tb";
-
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import Checkbox from '../Checkbox';
 import { getLevelClassName } from '../../helpers/helper';
 
-export default function ChapterProblemCard({ selectedChapter, problemCompleteClick,problemProgress }) {
+export default function ChapterProblemCard({ selectedChapter, problemCompleteClick, problemProgress }) {
     const getTableBody = () => {
         return (
             selectedChapter?.problems?.map((problem, index) => (
@@ -46,7 +45,7 @@ export default function ChapterProblemCard({ selectedChapter, problemCompleteCli
                         </p>
                     </td>
                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        <Checkbox label="Mark Complete" labelClassName="text-md ml-2 text-gray-700 font-medium" onClick={()=>problemCompleteClick(problem._id)} checked={problemProgress.includes(problem._id)}  />
+                        <Checkbox label="Mark Complete" labelClassName="text-md ml-2 text-gray-700 font-medium" onClick={() => problemCompleteClick(problem._id)} checked={problemProgress.includes(problem._id)} />
                     </td>
                 </TableRow>)
             )

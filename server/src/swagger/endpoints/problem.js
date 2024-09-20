@@ -9,7 +9,7 @@ import {
 
 const getProblem = {
     tags: ["Problem"],
-    description: "This is GET API. You can validate token of logged in users",
+    description: "This is API return problem based on given problem id.",
     "parameters": [
         {
             "name": "problemId",
@@ -79,7 +79,6 @@ const createProblem = {
                 },
             },
         },
-        ...createProblemBadRequestResponse,
         ...accessDeniedResponse
 
     },
@@ -120,7 +119,6 @@ const updateProblem = {
                 },
             },
         },
-        ...createProblemBadRequestResponse,
         ...accessDeniedResponse
 
     },

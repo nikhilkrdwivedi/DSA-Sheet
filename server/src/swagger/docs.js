@@ -1,6 +1,6 @@
-import {ENVIRONMENT_CONFIGS} from "../configurations/environment.js";
+import { ENVIRONMENT_CONFIGS } from "../configurations/environment.js";
 
-import {baseRoute, authenticationsRoute, topicRoute, chapterRoute, problemRoute} from "./endpoints/endpoint.js";
+import { baseRoute, authenticationsRoute, topicRoute, chapterRoute, problemRoute, progressRoute } from "./endpoints/endpoint.js";
 
 
 const swaggerDocs = {
@@ -17,9 +17,9 @@ const swaggerDocs = {
       description: "Dev server",
     },
     {
-        url: "http://3.111.226.44:3020",
-        description: "Backend server",
-      },
+      url: "http://3.111.226.44:3020",
+      description: "Backend server",
+    },
   ],
   components: {
     securitySchemes: {
@@ -40,7 +40,8 @@ const swaggerDocs = {
     ...authenticationsRoute,
     ...topicRoute,
     ...chapterRoute,
-    ...problemRoute
+    ...problemRoute,
+    ...progressRoute,
   },
 };
 export default swaggerDocs;

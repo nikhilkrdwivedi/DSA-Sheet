@@ -3,7 +3,7 @@ import { TopicProvider } from "../providers/provider.js";
 
 const create = async (request, response) => {
     try {
-        const { user:requestUser } = request;
+        const { user: requestUser } = request;
         let payload = { ...request.body, createdBy: requestUser._id };
         let topic = await TopicProvider.create(payload);
         return response.status(200).json({
@@ -21,10 +21,9 @@ const create = async (request, response) => {
 };
 const update = async (request, response) => {
     try {
-        const { user:requestUser } = request;
-        const {topicId} = request.params;
+        const { topicId } = request.params;
         let payload = { ...request.body };
-        let topic = await TopicProvider.findOneAndUpdate({_id: topicId},payload);
+        let topic = await TopicProvider.findOneAndUpdate({ _id: topicId }, payload);
         return response.status(200).json({
             success: true,
             message: httpResponseMessages.UPDATE_SUCCESS,
@@ -40,7 +39,7 @@ const update = async (request, response) => {
 };
 const getTopics = async (request, response) => {
     try {
-        let query = { isActive: true};
+        let query = { isActive: true };
         let topics = await TopicProvider.find(query);
         return response.status(200).json({
             success: true,
@@ -57,8 +56,9 @@ const getTopics = async (request, response) => {
 };
 const getTopic = async (request, response) => {
     try {
-        const {topicId} = request.params;
-        let query = { isActive: true, _id:topicId};
+        const { topicId } = request.params;
+        let query = { isActive: true, _id: topicId };
+
         let topic = await TopicProvider.findOne(query);
         return response.status(200).json({
             success: true,

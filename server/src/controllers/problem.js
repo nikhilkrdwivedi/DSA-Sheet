@@ -1,5 +1,5 @@
 import httpResponseMessages from "../constants/httpResponseMessages.js";
-import {  ChapterProvider, ProblemProvider, TopicProvider } from "../providers/provider.js";
+import { ChapterProvider, ProblemProvider, TopicProvider } from "../providers/provider.js";
 
 const create = async (request, response) => {
     try {
@@ -17,7 +17,6 @@ const create = async (request, response) => {
                 ChapterProvider.updateMany({ _id: { $in: body.chapters } }, { $push: { problems: problem._id } }, { multi: true })
             )
         }
-        console.log('😀😀😀 line 20 🚀🚀🚀', bulkOperations.length);
         if (bulkOperations.length) {
             await Promise.all(bulkOperations);
         }
@@ -92,7 +91,7 @@ const getProblem = async (request, response) => {
 const getProblemsByTopicId = async (request, response) => {
     try {
         const { topicId } = request.params;
-        let query = { isActive: true, topics: {$in:[topicId]} };
+        let query = { isActive: true, topics: { $in: [topicId] } };
         let problems = await ProblemProvider.find(query);
         return response.status(200).json({
             success: true,

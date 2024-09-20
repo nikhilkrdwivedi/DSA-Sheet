@@ -30,11 +30,11 @@ export const createProblemRequest = {
             type: "array",
             example: ["DSA", "Array", "Interview"],
         },
-        topics:{
+        topics: {
             type: 'array',
             example: ["66ebaf74d33530ab23aa4436"]
         },
-        chapters:{
+        chapters: {
             type: 'array',
             example: ["66ebc0a0bd17be1d4cce00fb"]
         },
@@ -45,30 +45,30 @@ export const createProblemResponse = {
     "success": true,
     "message": "Resource successfully created!",
     "data": {
-      "title": "Remove Element",
-      "url": "https://leetcode.com/problems/remove-element/description/",
-      "source": "LeetCode",
-      "note": "Complete theory first for better understandings.",
-      "level": "easy",
-      "tags": [
-        "DSA",
-        "Array",
-        "Interview"
-      ],
-      "topics": [
-        "66ebaf74d33530ab23aa4436"
-      ],
-      "chapters": [
-        "66ebc0a0bd17be1d4cce00fb"
-      ],
-      "createdBy": "66eb93bd5c6a1a53aebe3604",
-      "isActive": true,
-      "_id": "66ebe3339c251c9d67c38d41",
-      "createdAt": "2024-09-19T08:39:15.358Z",
-      "updatedAt": "2024-09-19T08:39:15.358Z",
-      "__v": 0
+        "title": "Remove Element",
+        "url": "https://leetcode.com/problems/remove-element/description/",
+        "source": "LeetCode",
+        "note": "Complete theory first for better understandings.",
+        "level": "easy",
+        "tags": [
+            "DSA",
+            "Array",
+            "Interview"
+        ],
+        "topics": [
+            "66ebaf74d33530ab23aa4436"
+        ],
+        "chapters": [
+            "66ebc0a0bd17be1d4cce00fb"
+        ],
+        "createdBy": "66eb93bd5c6a1a53aebe3604",
+        "isActive": true,
+        "_id": "66ebe3339c251c9d67c38d41",
+        "createdAt": "2024-09-19T08:39:15.358Z",
+        "updatedAt": "2024-09-19T08:39:15.358Z",
+        "__v": 0
     }
-  }
+}
 
 const createProblemBadRequestExample = {
     type: "object",
@@ -110,55 +110,63 @@ export const createProblemBadRequestResponse = {
     },
 };
 export const getProblemsSuccessResponse = {
-    type: 'object',
-    example: {
-        "success": true,
-        "message": "Resource successfully fetched!",
-        "data": [
-          {
-            "_id": "66eafc32525bfe08f802a940",
-            "name": "Array",
+    "success": true,
+    "message": "Resource successfully fetched!",
+    "data": [
+        {
+            "_id": "66ebe3339c251c9d67c38d41",
+            "title": "Remove Element",
+            "url": "https://leetcode.com/problems/remove-element/description/",
+            "source": "LeetCode",
+            "note": "Complete theory first for better understandings.",
+            "level": "easy",
             "tags": [
-              "DSA",
-              "Array",
-              "Interview"
+                "DSA",
+                "Array",
+                "Interview"
             ],
-            "chapters": [],
-            "topics": [],
-            "createdBy": "66eac85a70e171a9dcbd5e74",
+            "topics": [
+                "66ebaf74d33530ab23aa4436"
+            ],
+            "chapters": [
+                "66ebc394bd17be1d4cce0107"
+            ],
+            "createdBy": "66eb93bd5c6a1a53aebe3604",
             "isActive": true,
-            "createdAt": "2024-09-18T16:13:38.943Z",
-            "updatedAt": "2024-09-18T16:13:38.943Z",
+            "createdAt": "2024-09-19T08:39:15.358Z",
+            "updatedAt": "2024-09-19T08:39:15.358Z",
             "__v": 0
-          }
-        ]
-      }
-
+        }
+    ]
 }
 export const getProblemSuccessResponse = {
-    type: 'object',
-    example: {
-        "success": true,
-        "message": "Resource successfully fetched!",
-        "data": {
-          "_id": "66eafc32525bfe08f802a940",
-          "name": "Array",
-          "tags": [
+    "success": true,
+    "message": "Resource successfully fetched!",
+    "data":
+    {
+        "_id": "66ebe3339c251c9d67c38d41",
+        "title": "Remove Element",
+        "url": "https://leetcode.com/problems/remove-element/description/",
+        "source": "LeetCode",
+        "note": "Complete theory first for better understandings.",
+        "level": "easy",
+        "tags": [
             "DSA",
             "Array",
             "Interview"
-          ],
-          "chapters": [],
-          "topics": [],
-          "createdBy": "66eac85a70e171a9dcbd5e74",
-          "isActive": true,
-          "createdAt": "2024-09-18T16:13:38.943Z",
-          "updatedAt": "2024-09-18T16:13:38.943Z",
-          "__v": 0
-        }
-      }
-      
-
+        ],
+        "topics": [
+            "66ebaf74d33530ab23aa4436"
+        ],
+        "chapters": [
+            "66ebc394bd17be1d4cce0107"
+        ],
+        "createdBy": "66eb93bd5c6a1a53aebe3604",
+        "isActive": true,
+        "createdAt": "2024-09-19T08:39:15.358Z",
+        "updatedAt": "2024-09-19T08:39:15.358Z",
+        "__v": 0
+    }
 }
 export default {
     createProblemRequest,

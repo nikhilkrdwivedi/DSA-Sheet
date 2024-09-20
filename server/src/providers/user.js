@@ -1,4 +1,4 @@
-import {UserModel} from "../models/model.js";
+import { UserModel } from "../models/model.js";
 
 const create = async (payload) => {
   try {
@@ -13,14 +13,14 @@ const findOneAndUpdate = async (query, payload) => {
   try {
     const result = await UserModel.findOneAndUpdate(query, payload, {
       new: true,
-    });
+    }).lean();
     return result;
   } catch (error) {
     throw error;
   }
 };
 
-const  find = async (query) => {
+const find = async (query) => {
   try {
     const result = await UserModel.find(query).lean();
     return result;
@@ -30,7 +30,6 @@ const  find = async (query) => {
 };
 const findOne = async (query) => {
   try {
-    console.log('😀😀😀 line 33 🚀🚀🚀', query);
     const result = await UserModel.findOne(query).lean();
     return result;
   } catch (error) {
