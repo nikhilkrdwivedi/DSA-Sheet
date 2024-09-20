@@ -22,19 +22,52 @@ export const createTopicResponse = {
     "success": true,
     "message": "Resource successfully created!",
     "data": {
-        "name": "Array",
+        "title": "Array",
+        "description": "Array is a linear data structure where all elements are arranged sequentially. It is a collection of elements of same data type stored at contiguous memory locations.",
         "tags": [
             "DSA",
             "Array",
             "Interview"
         ],
-        "chapters": [],
-        "problems": [],
-        "createdBy": "66eac85a70e171a9dcbd5e74",
+        "chapters": [
+
+        ],
+        "problems": [
+
+        ],
+        "createdBy": "66eb93bd5c6a1a53aebe3604",
         "isActive": true,
-        "_id": "66eafc32525bfe08f802a940",
-        "createdAt": "2024-09-18T16:13:38.943Z",
-        "updatedAt": "2024-09-18T16:13:38.943Z",
+        "createdAt": "2024-09-19T04:58:28.569Z",
+        "updatedAt": "2024-09-20T05:09:53.607Z",
+        "__v": 0
+    }
+};
+export const updateTopicResponse = {
+    "success": true,
+    "message": "Resource successfully updated!",
+    "data": {
+        "_id": "66ebaf74d33530ab23aa4436",
+        "title": "Array",
+        "description": "Array is a linear data structure where all elements are arranged sequentially. It is a collection of elements of same data type stored at contiguous memory locations.",
+        "tags": [
+            "DSA",
+            "Array",
+            "Interview"
+        ],
+        "chapters": [
+            "66ebc0a0bd17be1d4cce00fb",
+            "66ebc394bd17be1d4cce0107",
+            "66ecf0522189697c556ddbaa",
+            "66ecf2315bb320f24f68f9fd"
+        ],
+        "problems": [
+            "66ebe3339c251c9d67c38d41",
+            "66ecf4d85bb320f24f68fa30"
+        ],
+        "createdBy": "66eb93bd5c6a1a53aebe3604",
+        "isActive": true,
+        "createdAt": "2024-09-19T04:58:28.569Z",
+        "updatedAt": "2024-09-20T05:09:53.607Z",
         "__v": 0
     }
 };
@@ -84,24 +117,24 @@ export const getTopicsSuccessResponse = {
         "success": true,
         "message": "Resource successfully fetched!",
         "data": [
-          {
-            "_id": "66eafc32525bfe08f802a940",
-            "name": "Array",
-            "tags": [
-              "DSA",
-              "Array",
-              "Interview"
-            ],
-            "chapters": [],
-            "problems": [],
-            "createdBy": "66eac85a70e171a9dcbd5e74",
-            "isActive": true,
-            "createdAt": "2024-09-18T16:13:38.943Z",
-            "updatedAt": "2024-09-18T16:13:38.943Z",
-            "__v": 0
-          }
+            {
+                "_id": "66eafc32525bfe08f802a940",
+                "name": "Array",
+                "tags": [
+                    "DSA",
+                    "Array",
+                    "Interview"
+                ],
+                "chapters": [],
+                "problems": [],
+                "createdBy": "66eac85a70e171a9dcbd5e74",
+                "isActive": true,
+                "createdAt": "2024-09-18T16:13:38.943Z",
+                "updatedAt": "2024-09-18T16:13:38.943Z",
+                "__v": 0
+            }
         ]
-      }
+    }
 
 }
 export const getTopicSuccessResponse = {
@@ -110,23 +143,23 @@ export const getTopicSuccessResponse = {
         "success": true,
         "message": "Resource successfully fetched!",
         "data": {
-          "_id": "66eafc32525bfe08f802a940",
-          "name": "Array",
-          "tags": [
-            "DSA",
-            "Array",
-            "Interview"
-          ],
-          "chapters": [],
-          "problems": [],
-          "createdBy": "66eac85a70e171a9dcbd5e74",
-          "isActive": true,
-          "createdAt": "2024-09-18T16:13:38.943Z",
-          "updatedAt": "2024-09-18T16:13:38.943Z",
-          "__v": 0
+            "_id": "66eafc32525bfe08f802a940",
+            "name": "Array",
+            "tags": [
+                "DSA",
+                "Array",
+                "Interview"
+            ],
+            "chapters": [],
+            "problems": [],
+            "createdBy": "66eac85a70e171a9dcbd5e74",
+            "isActive": true,
+            "createdAt": "2024-09-18T16:13:38.943Z",
+            "updatedAt": "2024-09-18T16:13:38.943Z",
+            "__v": 0
         }
-      }
-      
+    }
+
 
 }
 export default {
@@ -134,5 +167,6 @@ export default {
     createTopicResponse,
     createTopicBadRequestResponse,
     getTopicsSuccessResponse,
-    getTopicSuccessResponse
+    getTopicSuccessResponse,
+    updateTopicResponse
 }

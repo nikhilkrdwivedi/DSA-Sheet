@@ -1,28 +1,27 @@
 /* src/components/InputWithIcons.css */
 .input-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  .input-field {
-    padding: 0 10px; /* Adjust as needed */
-    padding-left: 30px; /* Space for left icon */
-    padding-right: 30px; /* Space for right icon */
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .icon {
-    position: absolute;
-    /* font-size: 12px; */
-  }
-  
-  .icon.left {
-    left: 10px; /* Adjust as needed */
-  }
-  
-  .icon.right {
-    right: 10px; /* Adjust as needed */
-  }
-  
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-field {
+  padding: 0 10px; /* Adjust as needed */
+  padding-left: 30px; /* Space for left icon */
+  padding-right: 30px; /* Space for right icon */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.icon {
+  position: absolute;
+  /* font-size: 12px; */
+}
+
+.icon.left {
+  left: 10px; /* Adjust as needed */
+}
+
+.icon.right {
+  right: 10px; /* Adjust as needed */
+}

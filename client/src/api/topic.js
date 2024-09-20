@@ -1,9 +1,9 @@
 import axiosHelper from "./axiosHelper";
-import {ENVIRONMENT_CONFIGS} from "../configurations/environment";
+import { ENVIRONMENT_CONFIGS } from "../configurations/environment";
 
 const TOPIC_ENDPOINT = "/api/v1/topic";
 const ENDPOINT = ENVIRONMENT_CONFIGS.BASE_URL + TOPIC_ENDPOINT;
-console.log('😀😀😀 line 6 🚀🚀🚀',ENVIRONMENT_CONFIGS );
+
 export function getTopics() {
   return axiosHelper(
     `${ENDPOINT}/`,
@@ -16,6 +16,6 @@ export function getTopic(topicId) {
     "GET",
   );
 }
- 
+
 
 export default { getTopics, getTopic };

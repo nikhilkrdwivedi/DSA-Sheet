@@ -1,14 +1,15 @@
 import React from "react";
-import Button from "../../components/Button";
-import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { useLoader } from "../../contexts/LoaderContext";
 import { BiLogOutCircle } from "react-icons/bi";
 import { PiBooks } from "react-icons/pi";
+import { BiLogInCircle } from "react-icons/bi";
+import Button from "../../components/Button";
+
+import { useLoader } from "../../contexts/LoaderContext";
+import { useAuth } from "../../contexts/AuthContext";
+
 export default function NavBar() {
   const [open, setOpen] = React.useState(false);
-  const [flyer, setFlyer] = React.useState(false);
-  const [flyerTwo, setFlyerTwo] = React.useState(false);
   const { logout, isAuthenticated } = useAuth();
   const { setLoader, loader } = useLoader()
   const navigate = useNavigate();
@@ -91,6 +92,18 @@ export default function NavBar() {
                 />
               </div>
             )}
+            {!isAuthenticated && (
+              <div className="hidden- md:flex items-center justify-end md:flex-1 lg:w-0">
+                <Button
+                  rightIcon={
+                    <BiLogInCircle
+                      className='w-6 h-6 text-pink-100' />}
+                  label="login"
+                  onClick={() => navigate('/login', { replace: true })}
+                  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-pink-500 hover:bg-pink-700"
+                />
+              </div>
+            )}
           </div>
         </div>
         {/** Mobile Nav */}
@@ -119,7 +132,6 @@ export default function NavBar() {
                       onClick={() => setOpen(!open)}
                     >
                       <span className="sr-only">Close menu</span>
-                      {/* Heroicon name: outline/x */}
                       <svg
                         className="h-6 w-6"
                         xmlns="http://www.w3.org/2000/svg"

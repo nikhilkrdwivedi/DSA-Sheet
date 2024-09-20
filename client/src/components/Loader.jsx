@@ -2,12 +2,12 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { RxColorWheel } from "react-icons/rx";
 import { useLoader } from "../contexts/LoaderContext";
 
-export default function Loader({ showCloseIcon=true }) {
-  const {loader, setLoader }=   useLoader();
+export default function Loader({ showCloseIcon = true }) {
+  const { loader, setLoader } = useLoader();
   return (
     loader.isLoading &&
     <div
-      onClick={()=>{setLoader({...loader, isLoading: false})}}
+      onClick={() => { setLoader({ ...loader, isLoading: false }) }}
       className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-700 opacity-75 flex flex-col items-center justify-center"
     >
       {showCloseIcon && (
@@ -25,7 +25,7 @@ export default function Loader({ showCloseIcon=true }) {
         Loading...
       </h2>
       <p className="w-full text-center text-white">
-      "Loading... Please hold while we search for the meaning of life."
+        "Loading... Please hold while we search for the meaning of life."
       </p>
     </div>
   );

@@ -1,30 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 
+import { GiProgression } from "react-icons/gi";
 import { useLocation } from 'react-router-dom';
-import { SlNotebook } from "react-icons/sl";
-import { GrTask } from "react-icons/gr";
-import { FaChevronDown } from "react-icons/fa6";
-import { GiLevelEndFlag } from "react-icons/gi";
-import { IoPricetagsOutline } from "react-icons/io5";
-import { PiBooks } from "react-icons/pi";
-import { BiLinkExternal } from "react-icons/bi";
-import Checkbox from '../../components/Checkbox';
-import Badge from '../../components/Badge';
-import Table from '../../components/Table';
+
 import { TextToAvatarText } from '../../helpers/text';
 import { useLoader } from '../../contexts/LoaderContext';
 import { getChaptersByTopicId } from '../../api/chapter';
 import ChapterSummaryCard from '../../components/chapter/ChapterSummaryCard';
 import ChapterResourceCard from '../../components/chapter/ChapterResourceCard';
 import NoDataFound from '../../components/NoDataFound';
-import TableRow from '../../components/TableRow';
 import ChapterProblemCard from '../../components/chapter/ChapterProblemCard';
 import Breadcrumbs from '../../components/Breadcrumb';
 import { getProgressByTopicId, updateProgress } from '../../api/progress';
 import ProgressCard from '../../components/chapter/ProgressCard';
-import { GiProgression } from "react-icons/gi";
 
 const TAB_LIST = [
     'Resources',
@@ -37,11 +26,12 @@ export default function Topic() {
         problem: [],
         chapter: []
     });
+    const [selectedChapter, setSelectedChapter] = useState(null);
+
     const { state = {} } = useLocation();
     const { loader, setLoader } = useLoader();
-    console.log({ state })
     const { topic = {} } = state || {}; // Read values passed on state
-    const [selectedChapter, setSelectedChapter] = useState(null);
+
     if (!topic || !topic?._id) {
         throw new Error('INVALID_TOPIC_REQUEST')
     }
@@ -61,10 +51,8 @@ export default function Topic() {
     };
     const fetchChapters = async () => {
         try {
-            console.log('topic?._id ', topic?._id)
             setLoader({ ...loader, isLoading: true });
             const { data: { data } } = await getChaptersByTopicId(topic?._id);
-            console.log({ data })
             setChapters(data);
             setSelectedChapter(data[0] || null)
         } catch (error) {
@@ -75,10 +63,8 @@ export default function Topic() {
     }
     const fetchProgress = async () => {
         try {
-            console.log('topic?._id ', topic?._id)
             setLoader({ ...loader, isLoading: true });
             const { data: { data } } = await getProgressByTopicId(topic?._id);
-            console.log({ data })
             setProgress(data)
         } catch (error) {
             console.log(error)
@@ -88,7 +74,6 @@ export default function Topic() {
     }
     const updateUserProgress = async (id, type) => {
         try {
-            console.log('topic?._id ', topic?._id)
             setLoader({ ...loader, isLoading: true });
             let progressTypeArray = progress[type]
             const isCompleted = !progressTypeArray.includes(id)
@@ -102,9 +87,6 @@ export default function Topic() {
             } else {
                 progressTypeArray = progressTypeArray.filter(item => item != id)
             }
-            console.log({ data })
-            // setChapters(data);
-            // setSelectedChapter(data[0] || null)
             setProgress((state) => ({
                 ...state,
                 [type]: progressTypeArray
@@ -117,15 +99,12 @@ export default function Topic() {
         }
     }
     useEffect(() => {
-        // setSelectedChapter(ARRAY_CHAPTER_DATA[0])
-    }, [])
-    useEffect(() => {
         fetchChapters();
         fetchProgress()
     }, [])
 
     return (
-        <div className=' max-w-7xl mx-auto mt-4'>
+        <div className='max-w-7xl mx-auto mt-4'>
             <Breadcrumbs className="mt-4" breadcrumbs={breadcrumbs} />
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-2 md:space-x-2'>
                 <div className=''>
@@ -133,13 +112,10 @@ export default function Topic() {
                         <div className='flex justify-start items-center gap-2 w-full pb-1'>
                             <p className='h-16 w-16 flex justify-center items-center bg-gray-200 text-2xl font-bold font-sans rounded-lg'>{TextToAvatarText(topic?.title)}</p>
                             <p className='text-2xl font-bold font-sans'>{topic?.title}</p>
-
                         </div>
-
                         <div className='text-sm font-normal text-gray-600 py-1'>{topic?.description}</div>
                         <div className='grid md:grid-cols-2 gap-2 mt-2'>
                             <div className='col-span-2 text-xl font-medium text-gray-800 flex items-center gap-2 border-b-2 pb-2' ><GiProgression /> Progress </div>
-
                             <ProgressCard title="Chapters" value={progress.chapter.length}
                                 valueMax={topic?.chapters?.length} />
                             <ProgressCard title="Problems" value={progress.problem.length}
@@ -153,7 +129,7 @@ export default function Topic() {
                         )}
                     </div>
                 </div>
-                <div className='md:col-span-2'>
+                <div className='md:col-span-2 mt-2 md:mt-0'>
                     <TabGroup>
                         <TabList>
                             {TAB_LIST.map((name, index) => (

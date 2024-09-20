@@ -4,12 +4,13 @@ import {
     createTopicBadRequestResponse,
     accessDeniedResponse,
     getTopicsSuccessResponse,
-    getTopicSuccessResponse
+    getTopicSuccessResponse,
+    updateTopicResponse
 } from "../schemas/schema.js";
 
 const getTopic = {
     tags: ["Topic"],
-    description: "This is GET API. You can validate token of logged in users",
+    description: "This API return topic.",
     "parameters": [
         {
             "name": "topicId",
@@ -115,7 +116,7 @@ const updateTopic = {
                 "application/json": {
                     schema: {
                         type: "object",
-                        example: createTopicResponse,
+                        example: updateTopicResponse,
                     },
                 },
             },

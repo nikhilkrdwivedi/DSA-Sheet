@@ -9,6 +9,7 @@ import {
     internalServerError,
     conflictError,
     logoutDeniedError,
+    loginUserSuccessResponse
 } from "../schemas/schema.js";
 
 const validateToken = {
@@ -40,7 +41,7 @@ const logout = {
                 schema: {
                     type: 'object',
                     properties: {
-                        allDeviceLogout:{
+                        allDeviceLogout: {
                             type: 'boolean',
                             example: true
                         }
@@ -131,7 +132,7 @@ const login = {
                 "application/json": {
                     schema: {
                         type: "object",
-                        example: registerNewUserSuccess,
+                        example: loginUserSuccessResponse,
                     },
                 },
             },

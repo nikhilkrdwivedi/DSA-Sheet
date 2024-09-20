@@ -17,7 +17,6 @@ const create = async (request, response) => {
                 ProblemProvider.updateMany({ _id: { $in: body.problems } }, { $push: { chapters: chapter._id } }, { multi: true })
             )
         }
-        console.log('😀😀😀 line 20 🚀🚀🚀', bulkOperations.length);
         if (bulkOperations.length) {
             await Promise.all(bulkOperations);
         }
@@ -92,8 +91,8 @@ const getChapter = async (request, response) => {
 const getChaptersByTopicId = async (request, response) => {
     try {
         const { topicId } = request.params;
-        let query = { isActive: true, topics: {$in:[topicId]} };
-        let chapters = await ChapterProvider.find(query, {populate:"problems"});
+        let query = { isActive: true, topics: { $in: [topicId] } };
+        let chapters = await ChapterProvider.find(query, { populate: "problems" });
         return response.status(200).json({
             success: true,
             message: httpResponseMessages.FETCH_SUCCESS,

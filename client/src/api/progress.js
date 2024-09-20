@@ -1,9 +1,9 @@
 import axiosHelper from "./axiosHelper";
-import {ENVIRONMENT_CONFIGS} from "../configurations/environment";
+import { ENVIRONMENT_CONFIGS } from "../configurations/environment";
 
 const PROGRESS_ENDPOINT = "/api/v1/progress";
 const ENDPOINT = ENVIRONMENT_CONFIGS.BASE_URL + PROGRESS_ENDPOINT;
-console.log('😀😀😀 line 6 🚀🚀🚀',ENVIRONMENT_CONFIGS );
+
 export function updateProgress(payload) {
   return axiosHelper(
     `${ENDPOINT}/`,
@@ -18,6 +18,6 @@ export function getProgressByTopicId(topicId) {
     "GET",
   );
 }
- 
+
 
 export default { updateProgress, getProgressByTopicId };

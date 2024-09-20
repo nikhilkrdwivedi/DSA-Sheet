@@ -2,10 +2,10 @@ import jwt from "jsonwebtoken";
 
 import { UserProvider } from "../providers/provider.js";
 
-import {ENVIRONMENT_CONFIGS} from "../configurations/environment.js";
+import { ENVIRONMENT_CONFIGS } from "../configurations/environment.js";
 
 import httpResponseMessages from "../constants/httpResponseMessages.js";
- 
+
 
 const extractTokenFromHeader = (request) => {
   if (
@@ -23,7 +23,6 @@ export const validateToken = async (
   next
 ) => {
   let token = extractTokenFromHeader(request);
-  console.log('😀😀😀 line 26 🚀🚀🚀', token);
   if (!token) {
     return response.status(401).json({
       success: false,
@@ -32,7 +31,6 @@ export const validateToken = async (
     });
   }
   token = token.replace(/\"/g, "");
-  console.log('😀😀😀 line 34 🚀🚀🚀', token);
   try {
     const userToken = jwt.verify(token, ENVIRONMENT_CONFIGS.JWT_SECRET);
     if (!userToken) {
@@ -47,7 +45,6 @@ export const validateToken = async (
       _id: userToken.userId,
       tokens: token,
     });
-    console.log('😀😀😀 line 48 🚀🚀🚀', user);
     if (!user) {
       return response.status(401).json({
         success: false,

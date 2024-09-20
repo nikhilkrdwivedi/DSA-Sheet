@@ -19,24 +19,24 @@ const findOneAndUpdate = async (query, payload) => {
         throw error;
     }
 };
-const updateMany = async (filter, update, options={}) => {
+const updateMany = async (filter, update, options = {}) => {
     try {
-        const result = await ProgressModel.updateMany(filter,update, options).lean();
+        const result = await ProgressModel.updateMany(filter, update, options).lean();
         return result;
     } catch (error) {
         throw error;
     }
 };
-const updateOne = async (filter, update, options={}) => {
+const updateOne = async (filter, update, options = {}) => {
     try {
-        const result = await ProgressModel.updateOne(filter,update, options).lean();
+        const result = await ProgressModel.updateOne(filter, update, options);
         return result;
     } catch (error) {
         throw error;
     }
 };
 
-const find = async (query, options={populate :""}) => {
+const find = async (query, options = { populate: "" }) => {
     try {
         const result = await ProgressModel.find(query).populate(options.populate).lean();
         return result;

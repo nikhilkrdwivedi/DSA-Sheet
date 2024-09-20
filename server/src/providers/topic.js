@@ -19,17 +19,17 @@ const findOneAndUpdate = async (query, payload) => {
         throw error;
     }
 };
-const updateMany = async (filter, update, options={}) => {
+const updateMany = async (filter, update, options = {}) => {
     try {
-        const result = await TopicModel.updateMany(filter,update, options).lean();
+        const result = await TopicModel.updateMany(filter, update, options).lean();
         return result;
     } catch (error) {
         throw error;
     }
 };
-const find = async (query) => {
+const find = async (query, options = { sort: { createdAt: 1 } }) => {
     try {
-        const result = await TopicModel.find(query).lean();
+        const result = await TopicModel.find(query).sort(options.sort).lean();
         return result;
     } catch (error) {
         throw error;

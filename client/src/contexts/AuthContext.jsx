@@ -20,24 +20,22 @@ export const AuthProvider = ({ children }) => {
             throw error
         }
     }
-    const logout =async () => {
-      try{
-        const { data: { data } } = await logoutUser({
-            allDeviceLogout:true
-        });
-        setIsAuthenticated(false);
-        localStorage.removeItem('isAuthenticated');
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-      }catch(error){
-        throw error
-      } 
+    const logout = async () => {
+        try {
+            const { data: { data } } = await logoutUser({
+                allDeviceLogout: true
+            });
+            setIsAuthenticated(false);
+            localStorage.removeItem('isAuthenticated');
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+        } catch (error) {
+            throw error
+        }
 
     }
     useEffect(() => {
-        console.log("localStorage.getItem('token') ",localStorage.getItem('token'))
         let _isAuthenticated = !!localStorage.getItem('token');
-        console.log("Hi", _isAuthenticated, typeof _isAuthenticated)
         setIsAuthenticated(_isAuthenticated)
         localStorage.setItem('isAuthenticated', _isAuthenticated)
     }, []);
